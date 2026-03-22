@@ -1,35 +1,20 @@
+package proj1;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-        System.out.print("Quantos discos deseja? ");
-        int discos = entrada.nextInt();
-        int menu = 0;
-        do {
-            System.out.println("1 - Mover discos\n2 - Mostrar torres\n3 - Reiniciar jogo\n4 - Sair\n");
-            menu = entrada.nextInt();
-            
-            
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Informe a quantidade de discos para iniciar o jogo: ");
+        int qtdDiscos = scanner.nextInt();
 
-        } while (menu != 4);
-        entrada.close();
+        try {
+            JogoHanoi jogo = new JogoHanoi(qtdDiscos);
+            jogo.iniciarSimulacao();
+        } catch (Exception e) {
+            System.out.println("Erro ao iniciar a aplicacao: " + e.getMessage());
+        }
+        
+        scanner.close();
     }
-}
-
-
-public class Disco {
-    private int TamDisco; 
-
-
-}
-
-
-public class Torre {
-
-}
-
-
-public class JogoHanoi {
-
 }

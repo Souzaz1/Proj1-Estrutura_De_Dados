@@ -1,28 +1,22 @@
-public class Pilha <T> { // PILHA GENÉRICA
-    // atributos
-    private static final int TAM_DEFAULT = 100; // cria uma constante
+package proj1; 
+
+public class Pilha<T> {
+    private static final int TAM_DEFAULT = 100;
     private int topoPilha;
     private T elementos[];
 
-    // construtores
+    @SuppressWarnings("unchecked")
     public Pilha(int tamanho) {
-        this.elementos = (T[]) new Object[tamanho]; /* Outras classes herdam de Object*/ 
-        /* Todo objeto da classe pai pode ser atribuido à ele um objeto da classe filho sendo possível o type casting */ 
+        this.elementos = (T[]) new Object[tamanho];
         this.topoPilha = -1;
-}
-
-    public Pilha() {
-        this(TAM_DEFAULT); // chama o outro construtor Pilha(int tamanho) caso o usuário não queira passar o tamanho da pilha.
     }
 
-    // métodos 
+    public Pilha() {
+        this(TAM_DEFAULT);
+    }
 
     public boolean isEmpty() {
-        if (topoPilha == -1) 
-            return true; 
-        else 
-            return false;  
-        // poderia usar o return this.topoPilha == -1;      
+        return topoPilha == -1;
     }
 
     public boolean isFull() {
@@ -31,10 +25,8 @@ public class Pilha <T> { // PILHA GENÉRICA
 
     public void push(T e) throws Exception {
         if (!this.isFull()) {
-            //topoPilha++;
             this.elementos[++topoPilha] = e;
-        }
-        else {
+        } else {
             throw new Exception("Overflow - Estouro de Pilha.");
         }
     }
@@ -44,8 +36,7 @@ public class Pilha <T> { // PILHA GENÉRICA
             T temp = this.elementos[topoPilha];
             topoPilha--;
             return temp;
-        }
-        else { 
+        } else {
             throw new Exception("Underflow - Esvaziamento de Pilha.");
         }
     }
@@ -53,13 +44,19 @@ public class Pilha <T> { // PILHA GENÉRICA
     public T topo() throws Exception {
         if (!this.isEmpty()) {
             return this.elementos[topoPilha];
-        }
-        else { 
-            throw new Exception("Underflow - Esvaziamento de Pilha.");
+        } else {
+            throw new Exception("Underflow - Pilha Vazia.");
         }
     }
 
     public int sizeElements() {
         return topoPilha + 1;
+    }
+
+    public T getElemento(int index) {
+        if (index >= 0 && index <= topoPilha) {
+            return this.elementos[index];
+        }
+        return null;
     }
 }
