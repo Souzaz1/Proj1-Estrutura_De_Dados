@@ -49,4 +49,16 @@ public class Pilha<T> {
     public int sizeElements() {
         return topoPilha + 1;
     }
+
+    public String toString() {
+        String resultado = "[";
+        for (int i = 0; i < sizeElements(); i++) {
+            resultado += elementos[i].toString();
+            if (i < sizeElements() - 1) {
+                resultado += ", "; 
+            }
+        }
+        resultado += "] ";
+        return resultado;
+    }
 }

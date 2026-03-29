@@ -58,12 +58,16 @@ public class JogoHanoi {
     }
 
     public void mostrarTorres() {
+        System.out.println("\n--- Estado Atual ---");
         System.out.println("Movimentos: " + movimentos);
-        // aqui você pode mostrar as pilhas de cada torre
+        System.out.println("T1: " + t1.toString());
+        System.out.println("T2: " + t2.toString());
+        System.out.println("T3: " + t3.toString());
+        System.out.println("--------------------\n");
+        
     }
 
-    public void reiniciar(int novaQtdDisco) {
-        this.qtdDiscos = novaQtdDisco; 
+    public void reiniciar() {
         iniciarJogo();
     }
 

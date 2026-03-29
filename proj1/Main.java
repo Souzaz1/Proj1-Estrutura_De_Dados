@@ -40,6 +40,10 @@ public class Main {
                     int destino = sc.nextInt();
 
                     jogo.mover(origem, destino);
+                    if (jogo.venceu()) {
+                        System.out.print("--- VOCÊ VENCEU! ---");
+                        opcao = 4;
+                    } 
                     break;
 
                 case 2:
@@ -47,9 +51,7 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.print("Digite a nova quantidade de discos: ");
-                    n = sc.nextInt();
-                    jogo.reiniciar(n);
+                    jogo.reiniciar();
                     System.out.println("Jogo reiniciado!");
                     break;
 

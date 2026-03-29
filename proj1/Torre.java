@@ -31,4 +31,8 @@ public class Torre {
     public int tamanho() {
         return pilha.sizeElements();
     }
+
+    public String toString() {
+        return pilha.toString();
+    }
 }
