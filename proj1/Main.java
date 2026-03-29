@@ -47,7 +47,9 @@ public class Main {
                     break;
 
                 case 3:
-                    jogo.reiniciar();
+                    System.out.print("Digite a nova quantidade de discos: ");
+                    n = sc.nextInt();
+                    jogo.reiniciar(n);
                     System.out.println("Jogo reiniciado!");
                     break;
 

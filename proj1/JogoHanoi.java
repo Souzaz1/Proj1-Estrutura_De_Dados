@@ -62,7 +62,8 @@ public class JogoHanoi {
         // aqui você pode mostrar as pilhas de cada torre
     }
 
-    public void reiniciar() {
+    public void reiniciar(int novaQtdDisco) {
+        this.qtdDiscos = novaQtdDisco; 
         iniciarJogo();
     }
 
