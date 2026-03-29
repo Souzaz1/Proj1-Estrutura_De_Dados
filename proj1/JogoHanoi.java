@@ -1,10 +1,18 @@
+
+/* 
+-------- Projeto Torre de Hanoi -------- 
+Lucas dos Santos Bartolomeu RA: 10747984
+Gabriel Pereira de Souza    RA: 10440766
+Joaquim Lange Lima Amaral   RA: 10738376
+*/
+
 public class JogoHanoi {
 
     private Torre t1;
     private Torre t2;
     private Torre t3;
 
-    private int movimentos;
+    public int movimentos;
     private int qtdDiscos;
 
     public JogoHanoi(int qtdDiscos) {
@@ -64,7 +72,6 @@ public class JogoHanoi {
         System.out.println("T2: " + t2.toString());
         System.out.println("T3: " + t3.toString());
         System.out.println("--------------------\n");
-        
     }
 
     public void reiniciar() {
