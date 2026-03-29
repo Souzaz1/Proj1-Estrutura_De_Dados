@@ -41,8 +41,8 @@ public class Main {
 
                     jogo.mover(origem, destino);
                     if (jogo.venceu()) {
-                        System.out.print("--- VOCÊ VENCEU! ---");
-                        System.out.println("\nMovimentos realizados até vencer: " + jogo.movimentos);
+                        System.out.print("--- PARABÉNS! Você Venceu! ---");
+                        System.out.println("\nTotal de movimentos: " + jogo.getMovimentos());
                         opcao = 4;
                     } 
                     break;

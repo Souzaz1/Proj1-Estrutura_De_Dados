@@ -12,7 +12,7 @@ public class JogoHanoi {
     private Torre t2;
     private Torre t3;
 
-    public int movimentos;
+    private int movimentos;
     private int qtdDiscos;
 
     public JogoHanoi(int qtdDiscos) {
@@ -80,5 +80,9 @@ public class JogoHanoi {
 
     public boolean venceu() {
         return t3.tamanho() == qtdDiscos;
+    }
+
+    public int getMovimentos() {
+        return this.movimentos; 
     }
 }
