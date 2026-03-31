@@ -43,4 +43,8 @@ public class Torre {
     public String toString() {
         return pilha.toString();
     }
+    
+    public Disco getDisco(int index) {
+        return pilha.getElemento(index);
+    }
 }

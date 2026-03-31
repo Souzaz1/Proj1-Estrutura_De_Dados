@@ -59,14 +59,24 @@ public class Pilha<T> {
     }
 
     public String toString() {
-        String resultado = "[";
-        for (int i = 0; i < sizeElements(); i++) {
-            resultado += elementos[i].toString();
-            if (i < sizeElements() - 1) {
-                resultado += ", "; 
-            }
+        if (isEmpty()) {
+            return "[ Vazia ]";
         }
-        resultado += "] ";
+        
+        String resultado = "\n"; // Começa com uma quebra de linha para alinhar melhor
+        
+        // Percorre do topo (sizeElements - 1) até a base (0)
+        for (int i = sizeElements() - 1; i >= 0; i--) {
+            resultado += elementos[i].toString() + "\n";
+        }
+        
         return resultado;
+    }
+
+    public T getElemento(int index) {
+        if (index >= 0 && index <= topoPilha) {
+            return elementos[index];
+        }
+        return null; // Retorna nulo se não tiver disco nessa altura
     }
 }

@@ -41,6 +41,11 @@ public class JogoHanoi {
             return;
         }
 
+        if (tOrigem == tDestino) {
+            System.out.println("Movimento inválido!");
+            return;
+        }
+
         if (tOrigem.estaVazia()) {
             System.out.println("Torre de origem vazia!");
             return;
@@ -67,11 +72,34 @@ public class JogoHanoi {
 
     public void mostrarTorres() {
         System.out.println("\n--- Estado Atual ---");
-        System.out.println("Movimentos: " + movimentos);
-        System.out.println("T1: " + t1.toString());
-        System.out.println("T2: " + t2.toString());
-        System.out.println("T3: " + t3.toString());
-        System.out.println("--------------------\n");
+        System.out.println("Movimentos: " + movimentos + "\n");
+
+        // Define o espaçamento entre as torres dinamicamente
+        int larguraColuna = qtdDiscos + 4; 
+
+        // O laço vai do andar mais alto (qtdDiscos - 1) até o chão (0)
+        for (int nivel = qtdDiscos - 1; nivel >= 0; nivel--) {
+            imprimirNivel(t1, nivel, larguraColuna);
+            imprimirNivel(t2, nivel, larguraColuna);
+            imprimirNivel(t3, nivel, larguraColuna);
+            System.out.println(); // Pula linha após imprimir o andar das 3 torres
+        }
+        
+        // Imprime a base com os nomes (T1, T2, T3) alinhados
+        System.out.printf("%-" + larguraColuna + "s", "T1");
+        System.out.printf("%-" + larguraColuna + "s", "T2");
+        System.out.printf("%-" + larguraColuna + "s", "T3");
+        System.out.println("\n--------------------\n");
+    }
+
+    private void imprimirNivel(Torre t, int nivel, int largura) {
+        Disco d = t.getDisco(nivel);
+        
+        // Se tiver disco, pega os asteriscos. Se não, deixa em branco ("")
+        String desenho = (d != null) ? d.toString() : ""; 
+        
+        // O printf garante o espaçamento correto mesmo quando está vazio
+        System.out.printf("%-" + largura + "s", desenho);
     }
 
     public void reiniciar() {
