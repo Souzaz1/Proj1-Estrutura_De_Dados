@@ -10,7 +10,8 @@ public class Torre {
 
     private String nome;
     private Pilha<Disco> pilha;
-
+    
+    // Construtor inicializa a torre com nome e capacidade max
     public Torre(String nome, int capacidade) {
         this.nome = nome;
         this.pilha = new Pilha<>(capacidade);
@@ -20,6 +21,7 @@ public class Torre {
         return nome;
     }
 
+    // Métodos que repassam as operações da torre para a pilha
     public void empilhar(Disco disco) {
         pilha.push(disco);
     }
@@ -43,7 +45,8 @@ public class Torre {
     public String toString() {
         return pilha.toString();
     }
-    
+
+    // Retorna o disco na posição específica
     public Disco getDisco(int index) {
         return pilha.getElemento(index);
     }

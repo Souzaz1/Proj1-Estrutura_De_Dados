@@ -8,6 +8,7 @@ public class Disco {
 
     private int tamanho;
 
+    // Construtor do disco com o tamanho
     public Disco(int tamanho) {
         this.tamanho = tamanho;
     }
@@ -19,6 +20,7 @@ public class Disco {
     @Override
     public String toString() {
         String asteriscos = "";
+        // Cria a string com a quantidade de asteriscos igual o tamanho do disco
         for (int i = 0; i < tamanho; i++) {
             asteriscos += "*";
         }

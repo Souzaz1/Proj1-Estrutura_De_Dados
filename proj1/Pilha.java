@@ -58,21 +58,22 @@ public class Pilha<T> {
         return topoPilha + 1;
     }
 
+    // Faz a representação visual da pilha, lista do topo pra baixo
     public String toString() {
         if (isEmpty()) {
             return "[ Vazia ]";
         }
         
-        String resultado = "\n"; // Começa com uma quebra de linha para alinhar melhor
+        String resultado = "\n"; 
         
-        // Percorre do topo (sizeElements - 1) até a base (0)
         for (int i = sizeElements() - 1; i >= 0; i--) {
             resultado += elementos[i].toString() + "\n";
         }
         
         return resultado;
     }
-
+    
+    // Acessa o disco sem precisar desempilhar
     public T getElemento(int index) {
         if (index >= 0 && index <= topoPilha) {
             return elementos[index];

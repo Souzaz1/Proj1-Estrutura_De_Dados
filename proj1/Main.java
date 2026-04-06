@@ -13,14 +13,30 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        int n = 0;
+        boolean nValido = false; 
 
-        System.out.print("Digite a quantidade de discos: ");
-        int n = sc.nextInt();
+        // Entrada e validação da quantidade de discos
+        while (!nValido) {
+            System.out.print("Digite a quantidade de discos: "); 
+            if (sc.hasNextInt()) { 
+                n = sc.nextInt(); 
+                if (n > 0 && n <= 100) { 
+                    nValido = true;
+                } else { 
+                    System.out.println("Erro, por favor escolha um número entre 1 a 100 no máximo (recomendado entre 1 a 20).");
+                }
+            } else { 
+                System.out.println("Erro, isso não é um número inteiro. ");
+                sc.next(); 
+            }
+        }
 
         JogoHanoi jogo = new JogoHanoi(n);
-
+    
         int opcao = 0;
 
+        // Loop para o menu e chamadas de métodos 
         while (opcao != 4) {
 
             System.out.println("\n1 - Mover disco");
@@ -38,21 +54,21 @@ public class Main {
 
                     System.out.print("Destino (1,2,3): ");
                     int destino = sc.nextInt();
-
+                    
                     jogo.mover(origem, destino);
                     if (jogo.venceu()) {
                         System.out.print("Parabéns Você Venceu!");
-                        jogo.mostrarTorres();
-                        opcao = 4;
+                        jogo.mostrarTorres(); 
+                        opcao = 4; 
                     } 
                     break;
 
                 case 2:
-                    jogo.mostrarTorres();
+                    jogo.mostrarTorres(); 
                     break;
 
                 case 3:
-                    jogo.reiniciar();
+                    jogo.reiniciar(); 
                     System.out.println("Jogo reiniciado!");
                     break;
 
@@ -61,7 +77,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opção inválida!"); 
             }
         }
 

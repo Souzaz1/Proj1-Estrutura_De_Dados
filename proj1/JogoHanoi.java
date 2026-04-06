@@ -20,6 +20,7 @@ public class JogoHanoi {
         iniciarJogo();
     }
 
+    // Inicializa as torres e empilha a primeira torre com os discos
     public void iniciarJogo() {
         t1 = new Torre("T1", qtdDiscos);
         t2 = new Torre("T2", qtdDiscos);
@@ -32,6 +33,7 @@ public class JogoHanoi {
         }
     }
 
+    // Valida e move o disco entre as torres seguindo as regras da Torre de Hanoi
     public void mover(int origem, int destino) {
         Torre tOrigem = escolherTorre(origem);
         Torre tDestino = escolherTorre(destino);
@@ -53,6 +55,7 @@ public class JogoHanoi {
 
         Disco discoOrigem = tOrigem.topo();
 
+        // Valida a regra: disco maior não pode ficar sobre um menor
         if (!tDestino.estaVazia() && 
             discoOrigem.getTamanho() > tDestino.topo().getTamanho()) {
             System.out.println("Movimento inválido!");
@@ -63,6 +66,7 @@ public class JogoHanoi {
         movimentos++;
     }
 
+    // Converte o número para o objeto Torre correspondente
     private Torre escolherTorre(int num) {
         if (num == 1) return t1;
         if (num == 2) return t2;
@@ -70,14 +74,15 @@ public class JogoHanoi {
         return null;
     }
 
+    // Mostra as torres na vertical
     public void mostrarTorres() {
         System.out.println("\n--- Estado Atual ---");
         System.out.println("Movimentos: " + movimentos + "\n");
 
-        // Define o espaçamento entre as torres dinamicamente
+        // Define o espaçamento entre as torres 
         int larguraColuna = qtdDiscos + 4; 
 
-        // O laço vai do andar mais alto (qtdDiscos - 1) até o chão (0)
+        // Loop do topo até a base para imprimir 
         for (int nivel = qtdDiscos - 1; nivel >= 0; nivel--) {
             imprimirNivel(t1, nivel, larguraColuna);
             imprimirNivel(t2, nivel, larguraColuna);
@@ -92,13 +97,13 @@ public class JogoHanoi {
         System.out.println("\n--------------------\n");
     }
 
+    // Imprime o andar da torre específica
     private void imprimirNivel(Torre t, int nivel, int largura) {
         Disco d = t.getDisco(nivel);
         
-        // Se tiver disco, pega os asteriscos. Se não, deixa em branco ("")
+        // Se tiver disco, pega os asteriscos. Se não, deixa em branco 
         String desenho = (d != null) ? d.toString() : ""; 
         
-        // O printf garante o espaçamento correto mesmo quando está vazio
         System.out.printf("%-" + largura + "s", desenho);
     }
 
@@ -106,6 +111,7 @@ public class JogoHanoi {
         iniciarJogo();
     }
 
+    // Vence o jogo quando todos os discos chegam na última torre T3 
     public boolean venceu() {
         return t3.tamanho() == qtdDiscos;
     }
